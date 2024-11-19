@@ -10,11 +10,13 @@ import "./product-detail";
 @customElement("product-list")
 export class ProductList extends LitElement {
   @property() productId = "";
+  @property() url = "https://fakestoreapi.com/products?limit=6";
+
   @state()
   private _selectedProduct = {};
   private _productsTask = new Task(this, {
     task: async () => {
-      const response = await fetch(`https://fakestoreapi.com/products?limit=6`);
+      const response = await fetch(this.url);
       if (!response.ok) {
         throw new Error(`Error ${response.status}`);
       }
