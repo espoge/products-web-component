@@ -31,9 +31,11 @@ export class ProductList extends LitElement {
     args: () => [],
   });
   private handleSelectedProduct({ detail }: { detail: number }) {
-    this._selectedProduct = this._productsTask._value.find(
-      (p: Product) => p.id === detail
-    );
+    this._productsTask.render({
+      complete: (products) => {
+        this._selectedProduct = products.find((p: Product) => p.id === detail);
+      },
+    });
   }
   private resetSelectedProduct() {
     this._selectedProduct = {};
