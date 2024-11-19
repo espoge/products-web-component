@@ -22,6 +22,10 @@ export class ProductCard extends LitElement {
         alt="${this.card.title}"
       />
       <h2 class="product-name">${this.card.title} ${this.card.id}</h2>
+      <div class="card-detail">
+        <p>${this.card.category}</p>
+        <p>${this.card.price} $</p>
+      </div>
     </div>`;
   }
   static styles = [
@@ -30,6 +34,7 @@ export class ProductCard extends LitElement {
       .card {
         border: 1px solid #ccc;
         padding: 10px;
+        border-radius: 5px;
         cursor: pointer;
       }
       .product-name {
@@ -38,6 +43,11 @@ export class ProductCard extends LitElement {
         text-align: center;
         text-decoration: underline;
         cursor: pointer;
+      }
+      .card-detail {
+        display: flex;
+        justify-content: space-between;
+        font-weight: 500;
       }
     `,
   ];
